@@ -1,64 +1,77 @@
 /**
- * @param {object} {0:"value" , 1:"value"}
+ * @class Stack
+ * @param {array}
  */
-var Stack = function () {
-  this.count = 0;
-  this.storage = {};
+class Stack {
+  constructor(initial) {
+    this.items = initial || [];
+  }
 
   /**
    * @function isEmpty Checks if the stack is empty
    * @return {boolean}
    */
-  this.isEmpty = function () {
-    return this.count === 0;
-  };
+  isEmpty() {
+    return this.items.length === 0;
+  }
 
   /**
    * @function size  Returns the size of stack
    * @returns {number}
    */
-  this.size = function () {
-    return this.count;
-  };
+  size() {
+    return this.items.length;
+  }
 
   /**
    * @function peek Returns the top element in the stack
    * @returns {*}
    */
-  this.peek = function () {
-    return this.storage[this.count - 1];
-  };
+  peek() {
+    return this.items[this.size() - 1];
+  }
 
   /**
    * @function push Adds an element to the top of the stack
-   * @param {*} value
+   * @param {*} element
    */
-  this.push = function (value) {
-    this.storage[this.count] = value;
-    this.count++;
-  };
+  push(element) {
+    return this.items.push(element);
+  }
 
   /**
-   * @function pop Removes and returns the top element in the stack.
+   * @function pop Removes and returns the top element in the stack
    * @returns {*}
    */
-  this.pop = function () {
-    if (this.isEmpty()) {
-      return undefined;
-    }
+  pop() {
+    if (this.isEmpty()) return "Underflow";
 
-    this.count--;
-    var result = this.storage[this.count];
-    delete this.storage[this.count];
-    return result;
-  };
+    return this.items.pop();
+  }
+
+  /**
+   * @function toArray  Returns the remaining elements as an array
+   * @returns {array}
+   */
+  toArray() {
+    return this.items.slice();
+  }
 
   /**
    * @function clear Clears all elements from the stack.
    */
-  this.clear = function () {
-    this.storage = {};
-  };
-};
+  clear() {
+    this.items = [];
+  }
+
+  /**
+   * @function fromArray Creates a stack from an existing array
+   * @param {array} [elements]
+   * @return {Stack}
+   */
+  static fromArray(elements) {
+    return new Stack(elements);
+  }
+}
 
 module.exports = Stack;
