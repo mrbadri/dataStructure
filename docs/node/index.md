@@ -1,3 +1,5 @@
+[< Back](./../../README.md)
+
 # Node
 
 This class represents a node in a tree structure.
@@ -7,14 +9,13 @@ This class represents a node in a tree structure.
 Here's an example of how to use the Node class:
 
     const Node = require('???');
-    
+
     const root = new Node('A');
     const leftChild = new Node('B');
     const rightChild = new Node('C');
 
     root.left = leftChild; // true
     root.right = rightChild; // true
-
 
 ## Properties
 

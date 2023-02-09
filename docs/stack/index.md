@@ -1,8 +1,11 @@
+[< Back](./../../README.md)
+
 # Stack
 
 A JavaScript implementation of a Stack data structure. A Stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle. In other words, the last element added to the stack will be the first one to be removed.
 
 ## Usage
+
 To create a new stack, you can initialize it with an array of elements or an empty array if not specified.
 
     const Stack = require('???');
